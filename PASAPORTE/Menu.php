@@ -87,14 +87,14 @@ $vector=$_SESSION['permisos'];
 		</script>
          
         <?php
-			echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://idrd.gov.co/SIM/\">";
+			echo "<meta http-equiv=\"refresh\" content=\"0;URL=/../SIM/\">";
 			}
 			
 		
 		}else
 		{
 		
-		echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://idrd.gov.co/SIM/\">";
+		echo "<meta http-equiv=\"refresh\" content=\"0;URL=/../SIM/\">";
 			
 		}
 	
@@ -577,7 +577,7 @@ width:250px;
 <?php
 				
 				}else{
-					echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://idrd.gov.co/SIM/\">";
+					echo "<meta http-equiv=\"refresh\" content=\"0;URL=/../SIM/\">";
 					}
 			
 							?>

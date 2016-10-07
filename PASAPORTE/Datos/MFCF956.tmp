@@ -1,0 +1,51 @@
+<?php
+session_start();
+
+if(isset($_SESSION['estado'])){
+	if ($_SESSION['estado']=="correcto" &&  $_SESSION['rol']== 1){
+		$id=$_GET["id"];
+
+
+						include ("Conexion.php");
+                         $Conn = conectar();
+						 	
+						
+						try{
+							$sql1="DELETE FROM empresavinculadatipo WHERE empresavinculadatipo.`Nit`='$id'";
+
+							
+							 mysql_query($sql1,$Conn);
+
+							 desconectar($Conn);
+												?>	
+									<script language="JavaScript" type="text/javascript">
+									alert("Empresa Eliminada");
+									</script>  
+							<?php
+							echo "<meta http-equiv=\"refresh\" content=\"0;URL=../EliminarEmpresas.php\">";
+							}
+							catch(Exception $e){
+							?>	
+									<script language="JavaScript" type="text/javascript">
+									alert("Error al intentar acceder  al recurso, verifique sus datos he intentelo de nuevo.");
+									</script>  
+							<?php
+			echo "<meta http-equiv=\"refresh\" content=\"0;URL=../EliminarEmpresas.php\">";
+							}
+	}else
+	{
+		echo "<meta http-equiv=\"refresh\" content=\"0;URL=../EliminarEmpresas.php\">";
+		}
+}
+else
+{
+
+		echo "<meta http-equiv=\"refresh\" content=\"0;URL=../EliminarOperario.php\">";
+}
+
+
+	
+	
+
+
+?>

@@ -4,6 +4,15 @@ session_start();
 <html><head><title>Pasaporte Vital</title><!-- **** stylesheet **** --><link rel="stylesheet" type="text/css" href="style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/i18n/defaults-*.min.js"></script>
+
 <style type="text/css">
 a:link {
 	text-decoration: none;
@@ -257,7 +266,7 @@ select {
                                 <td align="right"><label for="TB_Documento"  >NUMERO DOCUMENTO:</label></td>
                                 <td >                               
                                 <input type="text" name="TB_Documento"  id="textarea1"  maxlength="10" title="ESCRIBA AQU� EL NUMERO DE DOCUMENTO" onkeypress="return isNumberKey(event)" title="Solo Números, sin puntos." placeholder="Solo numeros, sin puntos"  onfocus="this.value=''"  required />
-                                </td>.,
+                                </td>
                                 <td ></td>
                               </tr>
                               <tr>
@@ -361,7 +370,7 @@ select {
                               	<td align="right"><b><label >CIUDAD: </label></b></td>
                                 <td>
 							  <div id="estados">
-							  <select name="edo" title="SELECCIONE CIUDAD">
+							  <select class="selectpicker" data-live-search="true" name="TB_Ciudad" title="SELECCIONE CIUDAD">
 							  <option value=""> Selecione Ciudad </option>
 							  </select>
 							  </div>
@@ -416,29 +425,23 @@ select {
                                 <td></td>
                               </tr>                              
                               <tr>
-                              	<td align="right"><b><label >NIVEL DE ESTUDIOS:</label></b></td>
+                              	<td align="right"><b><label style=" visibility:hidden" >NIVEL DE ESTUDIOS:</label></b></td>
                                 <td>
-                                <select name="DDL_Educacion" title="SELECCIONE EL NIVEL DE EDUCACI&Oacute;N">
-                                <option>NINGUNO</option>
-                                <option>PRIMARIA</option>
-                                <option>SECUNDARIA</option>
-                                <option>UNIVERSITARIOS</option>
-                                <option>OTRO</option>
-                                </select></td>
+                                <input  name="DDL_Educacion" type="hidden" value="OTRO">
+                               </td>
                                 <td></td>
                               </tr>
                               
                               <tr>
-                              	<td align="right"><b><label >SUFRE ALGUNA ENFERMEDAD?</label></b></td>
+                              	<td align="right"><b><label style=" visibility:hidden" >SUFRE ALGUNA ENFERMEDAD?</label></b></td>
                                 <td>
-                                <select name="DDL_Enfermedad" id="DDL_Enfermedad">                                
-                                <option>NO</option>
-                                <option>SI</option>
-                                </select></td>
+                                <input type="hidden" name="DDL_Enfermedad" id="DDL_Enfermedad" value="no">
+                                </td>
                                 <td></td>
                               </tr>							  							  							 <td align="right"><b><label style=" visibility:hidden" id="lblEnfermedad" >CUAL?</label></b></td>
-                                <td>                                 
-                                 <input type="text" name="TB_SeguroDescripcion" id="TB_SeguroDescripcion" style=" visibility:hidden" size="50" maxlength="50" title="ESPECIFIQUE EL TIPO DE SEGURIDAD SOCIAL QUE POSEE" />
+                                <td>                          
+                                 <input type="hidden"   name="TB_SeguroDescripcion" id="TB_SeguroDescripcion" value="">     
+                                 
                                 </td>
                                 <td></td>
                               </tr>						  
@@ -482,8 +485,8 @@ select {
                               <tr>
                               	
 							  <tr>
-                              	<td align="right"><b><label >ETNIA:</label></b></td>
-                                <td><select name="DDL_Etnia" title="SELECCIONE EL TIPO DE ETNIA ">
+                              	<td align="right"><b><label style=" visibility:hidden" >ETNIA:</label></b></td>
+                                <td><select  style=" visibility:hidden" name="DDL_Etnia" title="SELECCIONE EL TIPO DE ETNIA ">
                                 <?Php
 								$combobit = BD2(3);
 								echo $combobit; 
@@ -636,6 +639,14 @@ select {
 
 
 <script type="text/javascript">
+$(document).ready(function() {
+  
+
+$('.selectpicker').selectpicker({
+  style: 'btn-info',
+  size: 5
+});
+});
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2");
 var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3");

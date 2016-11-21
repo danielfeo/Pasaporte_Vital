@@ -1,1 +1,0 @@
-[14-Jun-2016 15:51:27 America/Bogota] PHP Warning:  mysql_set_charset() expects parameter 1 to be string, resource given in /home/idrdgov/public_html/SIM/Pasaporte_Vital/PASAPORTE/Datos/Conexion.php on line 7
